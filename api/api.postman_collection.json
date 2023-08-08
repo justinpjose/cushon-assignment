@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "d903f0a8-e977-4be8-a0a4-3c5677798124",
+		"name": "Cushon Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24078908"
+	},
+	"item": [
+		{
+			"name": "customer_accounts/{accountNo}/available_funds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{version}}/customer_accounts/1/available_funds",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{version}}",
+						"customer_accounts",
+						"1",
+						"available_funds"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer_accounts_funds/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{version}}/customer_accounts_funds/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{version}}",
+						"customer_accounts_funds",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_accounts_funds_id\": 1,\n    \"amount\": 25000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{version}}/transactions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{version}}",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "version",
+			"value": "v0",
+			"type": "string"
+		}
+	]
+}
