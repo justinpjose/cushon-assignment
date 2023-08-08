@@ -8,7 +8,7 @@ The requirements of the assignment can be found [here](docs/assignment.pdf)
 Documentation and Diagrams for the design of the application can be found below:
 - [Data Entities](/docs/data.md)
 - [Infrastructure](docs/infrastructure.md)
-- [Sequence](internal/handlers/create_transaction/post_transaction_sequence.drawio.png)
+- [Sequence](internal/handlers/createtransaction/post_transaction_sequence.drawio.png)
 - [API](api/README.md)
 
 ## Prerequisite
