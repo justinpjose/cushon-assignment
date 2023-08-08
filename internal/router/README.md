@@ -1,4 +1,4 @@
-# Assignment
+# Router
 
 ## Decisions
 - Router was based on the following documentation - https://www.alexedwards.net/blog/which-go-router-should-i-use
