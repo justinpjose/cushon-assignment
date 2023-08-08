@@ -9,6 +9,7 @@ import (
 	"github.com/justinpjose/cushon-assignment/internal/db/postgres"
 	"github.com/justinpjose/cushon-assignment/internal/logging"
 	"github.com/justinpjose/cushon-assignment/internal/logging/zerolog"
+	"github.com/justinpjose/cushon-assignment/internal/router/httprouter"
 )
 
 const (
@@ -37,9 +38,11 @@ func main() {
 	}
 
 	h := getHandlers(db, log)
-	router := getRouter(h, apiVersion)
-	addr := fmt.Sprintf(":%d", port)
 
+	router := httprouter.New()
+	getRoutes(router, h, apiVersion)
+
+	addr := fmt.Sprintf(":%d", port)
 	server := &http.Server{
 		Addr:              addr,
 		ReadHeaderTimeout: inactiveTimeout,

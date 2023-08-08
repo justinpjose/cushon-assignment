@@ -1,4 +1,4 @@
-# Postgres
+# DB
 
 # Why?
 ## SQL vs NoSQL?
