@@ -23,7 +23,8 @@ Ensure that you have the following installed:
 4. `make start-local` - runs DB in docker container while the API runs locally on your host machine
 5. `make logs-api` to get logs from the api docker container
 
-### Instructions
+### Instructions
+
 #### Option 1 - Main
 1. Run `make start` to run API and DB (both will be running in their own separate docker container)
 2. Make requests to the API via Postman using the [Postman Collection](api/README.md#postman-collection) or curl commands in a separate shell. Endpoints available can be found in the [swagger spec](api/README.md#viewing-the-swagger-spec)
