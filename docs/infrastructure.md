@@ -1,7 +1,7 @@
 # Infrastructure
 This document outlines the infrastructure required to run the application. This was created to have a visual understanding of how scability, security, high performance, resilience, extendability and maintenance can be achieved for the application. 
 
-[<img src="images/cloud_infra.drawio.png" title="Cloud Infrastructure Diagram - Draw.io" width=49.7% height=49.7%/>][infra_diagram_drawio]
+[<img src="images/cloud_infra.drawio.png" title="Cloud Infrastructure Diagram - Draw.io"/>][infra_diagram_drawio]
 
 ## Assumptions
 - The cloud provider used in Cushon is AWS

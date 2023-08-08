@@ -1,7 +1,7 @@
 # Data
 This document outlines the data entites in this assignment and how they relate to each other. These data entities will form the structure of database where the data will be stored.
 
-[<img src="images/class_diagram.drawio.png" title="Class Diagram - Draw.io" width=49.7% height=49.7%/>][class_diagram_drawio]
+[<img src="images/class_diagram.drawio.png" title="Class Diagram - Draw.io"/>][class_diagram_drawio]
 
 ## Tables
 
