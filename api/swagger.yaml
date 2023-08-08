@@ -1,0 +1,136 @@
+openapi: 3.0.3
+info:
+  title: Cushon Assignment
+  description: |-
+    This is the API Swagger Spec for the Cushon Assignment. This will be used by developers and customers to make API calls to Cushon
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080/api/v0
+tags:
+  - name: customer_accounts
+    description: Customer accounts created in Cushon
+  - name: transactions
+    description: All transactions made by customers to Cushon funds
+  - name: customer_accounts_funds
+    description: Funds opted by customers in their account
+paths:
+  /customer_accounts/{account_no}/available_funds:
+    get:
+      tags:
+        - customer_accounts
+      summary: Get available funds for customer
+      description: Get available funds which the customer can opt in their account
+      parameters:
+        - name: account_no
+          in: path
+          description: Account Number of Customer Account
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AvailableFunds"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /transactions:
+    post:
+      tags:
+        - transactions
+      summary: Creates a new transaction
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTransaction"
+      responses:
+        "201":
+          description: Successful operation
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /customer_accounts_funds/{id}:
+    get:
+      tags:
+        - customer_accounts_funds
+      summary: Get information on specific fund investment in customer account
+      description: ""
+      parameters:
+        - name: id
+          in: path
+          description: ID of customer account fund
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetCustomerAccountsFund"
+        "400":
+          description: Bad Request
+        "404":
+          description: Resource Not Found
+        "500":
+          description: Internal Server Error
+components:
+  schemas:
+    AvailableFund:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    AvailableFunds:
+      type: array
+      items:
+        $ref: "#/components/schemas/AvailableFund"
+    CreateTransaction:
+      type: object
+      required:
+        - customer_accounts_fund_id
+        - amount
+        - datetime_created
+      properties:
+        customer_accounts_fund_id:
+          type: integer
+          format: int64
+        amount:
+          type: number
+          format: int64
+    GetCustomerAccountsFund:
+      type: object
+      required:
+        - id
+        - customer_account_no
+        - fund_id
+        - total_amount
+      properties:
+        id:
+          type: integer
+          format: int64
+        customer_account_no:
+          type: integer
+          format: int64
+        fund_id:
+          type: integer
+          format: int64
+        total_amount:
+          type: number
+          format: int64

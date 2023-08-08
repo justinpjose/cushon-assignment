@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.3
+    restart: always
+    ports:
+      - 5432:5432
+    env_file: ./configs/variables/db.env
+    volumes:
+      - ./build/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - cushon_postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    env_file: ./configs/variables/api.env
+    volumes:
+      - cushon_api_data:/opt/api
+
+volumes:
+  cushon_postgres_data:
+  cushon_api_data:
