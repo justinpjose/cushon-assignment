@@ -11,11 +11,15 @@ RUN go mod download
 
 # Copy the repo. Note the slash at the end, as explained in
 # https://docs.docker.com/engine/reference/builder/#copy
-# Only copy source code
+# Copy internal private dependencies
+COPY ./configs ./configs
+COPY ./internal ./internal
+
+# Copy binary files (only source code)
 COPY ./cmd/assignment/*.go ./
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /cushon-api-binary ./cmd/assignment/*.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o /cushon-api-binary ./*.go
 
 # Run
 CMD ["/cushon-api-binary"]
